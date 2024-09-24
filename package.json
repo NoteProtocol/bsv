@@ -14,7 +14,7 @@
     "dev": "mocha -g 'BIP32' ",
     "test": "standard && mocha",
     "coverage": "nyc --reporter=text npm run test",
-    "prepublishOnly": "yarn build",
+    "prepare": "yarn build",
     "release": "npm publish --access public"
   },
   "targets": {
