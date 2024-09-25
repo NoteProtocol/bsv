@@ -4,21 +4,18 @@
   "description": "A pure and powerful JavaScript Bitcoin SV (BSV) library.",
   "author": "sCrypt.Inc",
   "source": "./index.js",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
-  "browser": "dist/browser.js",
+  "main": "dist/bsv.cjs.js",
+  "module": "dist/bsv.esm.js",
+  "browser": "dist/bsv.umd.js",
   "types": "./index.d.ts",
   "scripts": {
     "lint": "standard --fix",
-    "build": "parcel build --no-cache",
-    "dev": "mocha -g 'BIP32' ",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
     "test": "standard && mocha",
     "coverage": "nyc --reporter=text npm run test",
-    "prepare": "yarn build",
+    "prepare": "npm run build",
     "release": "npm publish --access public"
-  },
-  "targets": {
-    "types": false
   },
   "keywords": [
     "bitcoin",
@@ -55,11 +52,13 @@
     "unorm": "1.4.1"
   },
   "devDependencies": {
-    "brfs": "2.0.1",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "rollup": "^2.75.6",
     "chai": "4.2.0",
     "mocha": "^8.4.0",
     "nyc": "^14.1.1",
-    "parcel": "latest",
     "sinon": "7.2.3",
     "standard": "12.0.1"
   },
